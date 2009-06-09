@@ -1,0 +1,76 @@
+Para desarrollo se usa un usuario de MySQL que pueda crear y borrar bases de datos, por ejemplo el root de MySQL.
+
+Gemas, las necesarias se instalan con:
+
+  rake gems:install
+
+El setup del proyecto from scratch solo requiere dos pasos en desarrollo:
+
+  rake db:create
+  rake ventasgem:init:development
+
+En produccion:
+
+  create database ventasgem_production character set utf8;
+  grant all on ventasgem_production.* to 'username'@'localhost' identified by 'password';
+  
+  rake db:migrate
+  rake ventasgem:init:countries
+
+Para arrancar normal:
+
+  script/server
+
+That's all.
+
+Sphinx
+------
+
+Hay que instalar Sphinx
+
+   http://www.sphinxsearch.com/downloads/sphinx-0.9.8.tar.gz
+
+y ejecutar las tareas
+
+   rake thinking_sphinx:index
+   rake thinking_sphinx:start
+
+A su vez hay que programar unas tareas en el cron del usuario
+
+   crontab -e
+
+with (at least) this content:
+
+  PATH=/usr/local/bin:/usr/bin:/bin
+  RAILS_ENV=production
+
+  # VENTASgem uses delta indexes, we rebuild the entire index hourly.
+  @hourly cd /home/demos/rails_applications/ventasgem && rake ts:in
+  @reboot cd /home/demos/rails_applications/ventasgem && rake ts:in && rake thinking_sphinx:start
+
+
+Configuration files
+-------------------
+You need to create
+
+  config/database.yml
+  config/application.yml
+  config/initializers/local_config.rb (configuration of exception_notifier,google_analytics and others constants)
+
+taking their corresponding .example as a starting point.
+
+
+exception_notification (http://www.agilewebdevelopment.com/plugins/exception_notifier)
+--------------------------------------------------------------------------------------
+The Exception Notifier plugin provides a mailer object and a default set of
+templates for sending email notifications when errors occur in a Rails
+application. The plugin is configurable, allowing programmers to specify:
+
+* the sender address of the email
+* the recipient addresses
+* the text used to prefix the subject line
+
+google_analytics
+----------------
+Google Analytics is a free service offered by Google that generates 
+detailed statistics about the visitors to a website

@@ -1,0 +1,71 @@
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+  <tr>
+    <td colspan="2"><h1><%=h @customer.name %></h1></td>
+  </tr>
+  <tr>
+    <td class="label">Nombre</td>
+    <td class="data"><%=h @customer.name %></td>
+  </tr>
+  <tr>
+    <td class="label">Contacto</td>
+    <td class="data"><%=h @customer.contact %></td>
+  </tr>
+  <tr>
+    <td class="label">Teléfono</td>
+    <td class="data"><%=h @customer.phone %></td>
+  </tr>
+  <tr>
+    <td class="label">Email</td>
+    <td class="data"><%= mail_to @customer.email %></td>
+  </tr>
+  <tr>
+    <td class="label">Fax</td>
+    <td class="data"><%=h @customer.fax %></td>
+  </tr>
+  <tr>
+    <td class="label">NIF/CIF</td>
+    <td class="data"><%=h @customer.cif %></td>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Dirección</td>
+    <td valign="top" class="data">
+      <%= render :partial => 'address/show', :locals => { :address => @customer.address } %>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Notas</td>
+    <td class="data"><%= x_simple_format(@customer.notes) %></td>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Ofertas</td>
+    <td class="data">
+      <% for offer in @offers %>
+        <%= link_to_offer offer %><br/>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<br /><br />
+
+<div id="show-bottom-actions">
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <%= link_to "#{missing_icon} Nueva oferta", new_customer_offer_path(@customer) %>
+      </td>
+      <td>
+        <%= link_to "#{missing_icon} Ver ofertas", customer_offers_path(@customer) %>
+      </td>
+      <td>
+        <%= link_to "#{missing_icon} Cambiar datos", edit_customer_path(@customer) %>
+      </td>
+      <% if @customer.can_be_destroyed? %>
+      <td>
+        <%= link_to "#{missing_icon} Borrar", customer_path, :method => :delete, :confirm => "Esta acción es irreversible.\n¿Está seguro de que desea borrar este cliente?" %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

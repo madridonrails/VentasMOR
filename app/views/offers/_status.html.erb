@@ -1,0 +1,5 @@
+<% status = offer.status %>
+
+<div id="<%= dom_id(offer, :status) %>">
+  <%= link_to_remote h(status.name), :url => status_offer_path(offer), :method => :get, :update => dom_id(offer, :status) %>
+</div>

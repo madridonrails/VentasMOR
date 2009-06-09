@@ -1,0 +1,11 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td class="data"><%= link_to_user(user) %></td>
+  <td class="with-check-box"><%= boolean_as_check_box(user.administrator?)%></td>
+  <td class="with-check-box"><%= boolean_as_check_box(user.salesman?)%></td>
+  <td class="actions-column">
+    <% if user.salesman? %>
+    <%= link_to 'Nueva oferta', new_user_offer_path(user) %> |
+    <%= link_to 'Ver ofertas', user_offers_path(user) %>
+    <% end %>
+  </td>
+</tr>

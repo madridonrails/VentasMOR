@@ -1,0 +1,10 @@
+# Example global application configuration file
+# Replace with your configuration variables in YAML format
+# See http://en.wikipedia.org/wiki/YAML#Syntax for introduction to syntax
+
+website_name: Rubyists Anonymous
+
+topics:
+ - Ruby
+ - Rails
+ - Wittgensitein's "Philosophila Investigations"

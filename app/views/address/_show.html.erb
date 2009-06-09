@@ -1,0 +1,10 @@
+<span class="data">
+<%=
+  [
+    address.street1,
+    address.street2,
+    "#{address.postal_code} #{address.city}",
+    "#{address.province} (#{address.country.name})"
+  ].delete_if(&:blank?).map{|x| h(x) }.join("<br />")
+%>
+</span>

@@ -1,0 +1,7 @@
+<% form_for @user do |form| %>
+<%= render :partial => form %>
+<%= render :partial => 'shared/cancel_submit', :locals => {
+  :cancel_url   => users_url,
+  :submit_label => 'Cambiar datos'
+} %>
+<% end %>

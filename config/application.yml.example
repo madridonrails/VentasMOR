@@ -1,0 +1,79 @@
+pagination_window: 30
+
+reserved_subdomains:
+  - www
+  - test
+  - dev
+
+# -- [ Action Mailer ] --------------------------------------------------------
+
+smtp_settings:
+  :address: 127.0.0.1
+  :port: 25
+  :domain: "domain.of.sender.net"
+
+#
+# -- [ welcome mail ] ---------------------------------------------------------
+#
+
+welcome_mail:
+  from: <%= APP_NAME %> <<%=CONTACT_EMAIL_ACCOUNTS%>>
+  subject: Bienvenido a <%= APP_NAME %>
+  body: |
+    ¡Bienvenido a <%= APP_NAME %>!
+
+    La direccion personalizada de acceso a tu cuenta "<%= account.name %>" es:
+
+      <%= url_for_account %>
+
+    Por favor, guarda este correo para usarlo como referencia por si olvidas esa
+    dirección.
+
+    El equipo de <%= APP_NAME %>
+
+ensure_we_are_completely_dedented_at_the_end: 1
+
+
+#
+# -- [ mail for accounts remainder ] ------------------------------------------
+#
+
+accounts_reminder_mail:
+  from: <%= APP_NAME %> <<%=CONTACT_EMAIL_ACCOUNTS%>>
+  subject: Tus cuentas en <%= APP_NAME %>
+  body: |
+    La dirección de acceso de tus cuentas en <%= APP_NAME %> es:
+
+      <%= urls.join("\n  ") %>
+
+    Agradecemos tu confianza en <%= APP_NAME %>, te recordamos que puedes ponerte
+    en contacto con nosotros en <%=CONTACT_EMAIL_ACCOUNTS%>.
+
+    El equipo de <%= APP_NAME %>
+
+ensure_we_are_completely_dedented_at_the_end: 1
+
+#
+# -- [ chpass instructions mail ] ----------------------------------------------------------
+#
+
+chpass_instructions_mail:
+  from: <%= APP_NAME %> Soporte <<%=CONTACT_EMAIL_ACCOUNTS%>>
+  subject: Nueva contraseña para <%= APP_NAME %>
+  body: |
+    Esta es tu nueva contraseña en <%= APP_NAME %>:
+
+      <%= password %>
+
+    Te recomendamos que una vez accedas la cambies por una que te sea familiar.
+    Para ello accede a la pestaña "Mis datos", sigue el enlace de abajo a la
+    derecha "Cambiar datos", entra la contraseña que desees, y haz click en el
+    botón "Cambiar datos".
+
+    Agradecemos tu confianza en <%= APP_NAME %>, te recordamos que puedes ponerte
+    en contacto con nosotros en <<%=CONTACT_EMAIL_ACCOUNTS%>>.
+
+    <%= APP_NAME %> Soporte
+
+ensure_we_are_completely_dedented_from_here_on: 1
+

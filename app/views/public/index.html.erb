@@ -1,0 +1,110 @@
+<div id="home-section">
+  <div id="home-index">
+    <div id="highlightarea">
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <colgroup>
+          <col width="53%"/>
+          <col width="47%"/>
+        </colgroup>
+        <tr>
+          <td align="center">
+            <p id="slogan">¡Gestión de Ventas<br/>Fácil!</p>
+            <p class="slogan-abstract">
+              La manera más fácil y eficaz de<br />
+              gestionar las ventas de tu empresa.<br />
+              ¡Haz tu previsión de ventas en un minuto!
+            </p>
+            <p class="home-highlighted-actions">
+              <%= link_to '¡Regístrate gratis!', new_account_path, :class => 'home-highlighted-action' %>
+            </p>
+            <p class="slogan-abstract">
+              Sin compromisos, sin limitaciones.<br />
+              <%= APP_NAME %> es una aplicación online<br />
+              totalmente gratuita.
+            </p>
+          </td>
+          <td>
+            <%= link_to image_tag('ventasgem.png'), :action => 'tour' %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="cleararea">
+      <table width="745" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td valign="top" align="left">
+            <div>
+              <%= image_tag "icon-arrow2.gif" %>
+              <span class="home-feature-title">Visualizar las ofertas</span>
+              <br />
+              <%= image_tag "det_home_01.gif", :class => 'image-border' %>
+            </div>
+            <div class="home-feature-subtitle">Gestiona fácilmente tus ofertas</div>
+            <div class="home-feature-description">
+              <p>¿Cuántas ofertas comerciales tiene abiertas tu empresa?
+              ¿Qué posibilidades tienen de concretarse en una venta?
+              ¿Cuánto dinero suponen?
+              ¿Cuál ha sido la trayectoria de los comerciales?
+              Todas éstas son preguntas cruciales para tu negocio.</p>
+              <p>Ahora la respuesta es realmente fácil. <%= APP_NAME %> te permite gestionar
+              de forma sencilla y visual todas las ofertas comerciales de tu empresa:
+              las peticiones en curso, las ofertas cerradas, las ganadas y las
+              perdidas, con sus respectivas fechas de cierre. Todo de la manera más
+              sencilla posible, y GRATIS.</p>
+            </div>
+          </td>
+          <td valign="top" align="left">
+            <div>
+              <%= image_tag "icon-arrow2.gif" %>
+              <span class="home-feature-title">Previsiones simples</span>
+              <br />
+              <%= image_tag "det_home_02.gif", :class => 'image-border' %>
+            </div>
+            <div class="home-feature-subtitle">Previsiones simples y eficaces</div>
+            <div class="home-feature-description">
+              <p>¿Aburrido de la complejidad y pesadez de las hojas de cálculo para ver
+              tu previsión de ventas? Con <%= APP_NAME %> ya no necesitas romperte la
+              cabeza para realizar unas buenas previsiones. Ahora es muy sencillo.
+              <%= APP_NAME %> te permite conocer y visualizar las previsiones mediante
+              gráficos fáciles de interpretar: por estado de las ofertas
+              &mdash;petición, presentada, ganadora, perdida, ganada, etc.&mdash; y
+              por comercial responsable. Encontrarás exclusivamente aquella
+              información que es realmente útil para tu negocio, bien ordenada y
+              presentada.</p>
+
+              <p>Además de la cantidad total, podrás conocer en todo momento la cantidad
+              ponderada que hay en el "pipeline" de ventas. Es decir, el dinero que
+              se prevé obtener aplicando el porcentaje de éxito asignado a cada oferta.</p>
+            </div>
+          </td>
+          <td valign="top" align="left">
+            <div>
+              <%= image_tag "icon-arrow2.gif" %>
+              <span class="home-feature-title">Para el equipo comercial</span>
+              <br />
+              <%= image_tag "det_home_03.gif", :class => 'image-border' %>
+            </div>
+            <div class="home-feature-subtitle">Donde y cuando quieras. ¡GRATIS!</div>
+            <div class="home-feature-description">
+              <p><%= APP_NAME %> es una aplicación en Red. Eso significa que puedes trabajar
+              con la información de las ofertas y tus comerciales cuando quieras y
+              desde donde quieras, de forma totalmente segura. Sólo necesitas una
+              conexión a Internet. Eso te permite compartir el trabajo y la
+              información de forma controlada con quien tú elijas: tus comerciales,
+              tus clientes y tus colaboradores de confianza.</p>
+
+              <p>Lo importante es que tú tienes el control en todo momento.
+              <%= APP_NAME %> incluye dos perfiles de gestión: el de administrador, que
+              tiene acceso a la información completa, y el de comercial, que puede
+              operar exclusivamente con las ofertas que tiene asignadas. Así de
+              sencillo, ni más ni menos. Además, para hacer tu trabajo más fácil,
+              puedes exportar los datos de las ofertas comerciales a tu hoja de
+              cálculo.</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

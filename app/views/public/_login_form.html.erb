@@ -1,0 +1,33 @@
+<p class="error"><%= flash[:notice]%></p>
+<% form_tag do -%>
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><label for="email">Email</label></td>
+    </tr>
+    <tr>
+      <td>
+        <%# We put an explicit nil :id because it is generated and we have another email field in the same page. %>
+        <%= text_field_tag 'email', params[:email], :class => "home-form-field autocomplete" %>
+      </td>
+    </tr>
+  </table>
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><label for="password">Contrase&ntilde;a</label></td>
+    </tr>
+    <tr>
+      <td>
+        <%= password_field_tag 'password', nil, :class => "home-form-field" %>
+      </td>
+    </tr>
+  </table>
+
+  <table width="500"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <%= submit_tag 'Acceder', :class => 'button' %>
+      </td>
+    </tr>
+  </table>
+<% end %>

@@ -1,0 +1,118 @@
+<div id="home-section">
+  <div id="home-help">
+    <div id="home-section-header">
+      Ayuda
+    </div>
+
+    <div id="home-section-container">
+      <div id="home-section-subcontainer">
+        <p>Aquí tienes la lista de las preguntas más frecuentes. Si no encuentras la
+          respuesta que estás buscando, envíanos un correo a
+          <%= mail_to "ventasgem@#{DOMAIN_NAME_NOWWW}", "ventasgem@#{DOMAIN_NAME_NOWWW}", :encode => :javascript %>
+          y trataremos de ayudarte.</p>
+
+        <h1>Acerca de <%= APP_NAME %></h1>
+
+        <div class="help-item">
+          <h2>¿Por qué <%= APP_NAME %>?</h2>
+          <p>Porque sabemos que gestionar las ofertas y sacar una buena previsión
+            de las ventas de tu empresa no es fácil, y además con las hojas de
+            cálculo actuales resulta engorroso y poco práctico.</p>
+
+          <p>Al principio hay muchas ofertas comerciales en curso; al final, no todas
+            acaban convertidas en ventas reales. Somos conscientes de que tu empresa
+            necesita conocer y procesar toda esa información para mejorar su labor
+            comercial, y para realizar unas buenas previsiones.</p>
+
+          <p>Las herramientas existentes en el mercado no dan una respuesta a esta
+            necesidad, son demasiado complejas (decenas de funcionalidades que luego
+            no utilizas) y además costosas para la mayoría de las PYMES. Por eso nos
+            decidimos a crear <%= APP_NAME %>, una aplicación sencilla, visual y
+            efectiva, que consigue que gestionar tu pipeline de ventas sea
+            extremadamente fácil. Y además, completamente GRATIS.</p>
+        </div>
+
+        <div class="help-item">
+          <h2>¿Cuánto cuesta <%= APP_NAME %>?</h2>
+          <p><%= APP_NAME %> es una aplicación totalmente gratuita, sin cuota de alta
+            ni cuotas mensuales. Es totalmente GRATIS.</p>
+        </div>
+
+        <div class="help-item">
+          <h2>¿Por qué en las condiciones legales se habla de precio si la
+          aplicación es gratuita?</h2>
+
+          <p><%= APP_NAME %> es una aplicación gratiuita a día de hoy, y la
+          funcionalidad actual será siempre gratuita. Las condiciones
+          legales hablan de precio porque en un futuro tenemos previsto añadir
+          servicios de valor añadido opcionales que serán de pago.</p>
+        </div>
+
+        <div class="help-item">
+          <h2>¿Puedo ver una demo?</h2>
+          <p>Sí, por supuesto. Puedes <%= link_to 'echar un vistazo', :action => 'tour' %>
+            para ver cómo funciona <%= APP_NAME %>, pero te recomendamos el REGISTRO
+            GRATIS, que te permite probar la aplicación sin coste alguno y sin
+            compromiso de ningún tipo. Estamos seguros de que te va a convencer,
+            <%= APP_NAME %> es una aplicación extremadamente sencilla y útil.</p>
+        </div>
+
+        <h1>Sobre las ofertas</h1>
+
+        <div class="help-item">
+          <h2>¿Qué es el pipeline de ventas?</h2>
+
+          <p>El pipeline o &quot;túnel de ventas&quot; refleja el proceso de ventas de
+            una empresa: desde que se plantean las ofertas comerciales hasta que
+            eventualmente se concretan en ventas reales.</p>
+
+          <p>Como es lógico, al principio, en la entrada del túnel, hay bastantes
+            ofertas en curso; al final, sólo una parte de ellas acaban en ventas
+            reales. Podemos decir que el &quot;túnel&quot; es ancho en la entrada,
+            y se va estrechando conforme se acerca a la salida.</p>
+
+          <p>Tu empresa necesita conocer y procesar toda esa información para mejorar
+            su labor comercial, y para realizar unas buenas previsiones. Por eso hemos
+            creado <%= APP_NAME %>.</p>
+        </div>
+
+        <div class="help-item">
+          <h2>¿Cuál es la diferencia entre el &quot;total ofertas&quot; y el
+            &quot;total ponderado&quot;?</h2>
+
+          <p>Los dos totales aportan información útil para tu negocio. El &quot;total
+            ofertas&quot; es la suma del importe completo de todas las ofertas que se
+            han dado de alta. Es decir, es una especie de volumen total de negocio
+            posible, ya que suma todo el importe registrado en las ofertas de los
+            comerciales. Hay que tener en cuenta no obstante que de las ofertas,
+            registradas sólo una parte se convertirá en una venta real.</p>
+
+          <p>El &quot;total ponderado&quot; tiene en cuenta cuenta el porcentaje de
+            éxito asignado a cada una de las ofertas. Es decir, si una oferta ha
+            sido perdida, está claro que tiene un 0% de probabilidades de
+            transformarse en una venta, así que esa cantidad ya no se incorpora al
+            total ponderado. De igual modo, si a una oferta por valor de 10.000 €
+            le asignamos un porcentaje estimado de éxito del 80%, sólo computará
+            8.000 € en el total ponderado. Esto te permite tener una previsión de
+            ventas más ajustada a la realidad de tu empresa.</p>
+        </div>
+
+        <div class="help-item">
+          <h2>¿Cómo exportar los datos a una hoja de cálculo?</h2>
+
+          <p><%= APP_NAME %> te permite exportar los datos de las ofertas
+            comerciales en un formato compatible, para que puedas operar con ellos
+            en tu hoja de cálculo. Haz click en el enlace &quot;Exportar ofertas&quot;
+            en el menú que aparece en la parte inferior derecha de la página de
+            Ofertas, Previsiones, Clientes y Usuarios (vista de administrador).</p>
+
+          <p>Después, elige los datos que quieres exportar. En una lista desplegable
+            encontrarás las opciones por período de tiempo: el histórico completo,
+            el trimestre presente, el trimestre pasado, el año presente y el año
+            pasado. Otra lista desplegable te mostrará todos tus clientes.
+            Selecciona la opción más conveniente y pulsa el botón &quot;Exportar&quot;.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="status-list-container">
+  <div class="caption">
+    Estados
+  </div>
+
+  <table id="status-list-table">
+    <% for s in @statuses %>
+    <tr><td><%= link_to_status s %></td><td class="numeric"><%=h s.weight %>%</td></tr>
+    <% end %>
+  </table>
+</div>
+
+<% if admin? %>
+<div id="show-bottom-actions">
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <%= link_to 'Reordenar estados', statuses_reorder_path %>
+      </td>
+      <td>
+        <%= link_to 'Crear estado', new_status_path %>
+      </td>
+    </tr>
+  </table>
+</div>
+<% end %>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <%= render :partial => 'shared/head' %>
+  <body>
+
+    <%# Note this is the exact place wz_tooltip is recommended to be placed. Do not move it to HEAD. %>
+    <%= javascript_include_tag 'wz_tooltip/wz_tooltip' %>
+
+    <div id="main">
+      <%= render :partial => 'shared/header' %>
+      
+      <div id="content">
+        <div id="main-area">
+          <div id="main-area-header"></div>
+          <div id="main-area-body">
+            <div id="main-content">
+                <%= yield %>
+            </div>
+          </div>
+          <div id="main-area-footer"></div>
+        </div>
+
+        <div id="sidebar">
+          <%= render :partial => 'shared/right_column' %>
+        </div>
+      </div>
+      
+      <%= render :partial => 'shared/footer' %>
+    </div>
+  </body>
+</html>

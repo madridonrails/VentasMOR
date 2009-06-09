@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF xmlns="http://rorweb.com/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <!-- Check http://www.rorweb.com/spec.htm -->
+
+  <Resource rdf:about="main">
+    <type>Main</type>
+    <title>VENTASmor</title>
+    <url>http://www.ventasgem.madridonrails.com/</url>
+    <image>images/logo.png</image>
+  </Resource>
+
+  <Resource rdf:about="sitemap">
+    <type>SiteMap</type>
+    <title>SiteMap</title>
+    <resourceOf rdf:resource="main"/>
+  </Resource>
+
+  <Resource rdf:about="home">
+     <type>Webpage</type>
+     <title>VENTASmor Home Page</title>
+     <url>http://www.ventasgem.madridonrails.com/</url>
+     <format>text/html</format>
+     <language>es</language>
+     <updatePeriod>week</updatePeriod>
+     <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+
+  <Resource rdf:about="reading">
+    <type>Webpage</type>
+    <title>VENTASmor Tour</title>
+    <url>http://www.ventasgem.madridonrails.com/public/tour</url>
+    <format>text/html</format>
+    <language>es</language>
+    <updatePeriod>week</updatePeriod>
+    <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+
+  <Resource rdf:about="reading">
+    <type>Webpage</type>
+    <title>VENTASmor FAQ</title>
+    <url>http://www.ventasgem.madridonrails.com/public/help</url>
+    <format>text/html</format>
+    <language>es</language>
+    <updatePeriod>week</updatePeriod>
+    <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+
+  <Resource rdf:about="reading">
+    <type>Webpage</type>
+    <title>VENTASmor Contact</title>
+    <url>http://www.ventasgem.madridonrails.com/public/contact</url>
+    <format>text/html</format>
+    <language>es</language>
+    <updatePeriod>week</updatePeriod>
+    <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+
+  <Resource rdf:about="reading">
+    <type>Webpage</type>
+    <title>VENTASmor Signup</title>
+    <url>http://www.ventasgem.madridonrails.com/accounts/new</url>
+    <format>text/html</format>
+    <language>es</language>
+    <updatePeriod>week</updatePeriod>
+    <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+
+  <Resource rdf:about="reading">
+    <type>Webpage</type>
+    <title>VENTASmor Login</title>
+    <url>http://www.ventasgem.madridonrails.com/public/login</url>
+    <format>text/html</format>
+    <language>es</language>
+    <updatePeriod>week</updatePeriod>
+    <resourceOf rdf:resource="sitemap"/>
+  </Resource>
+</rdf:RDF>

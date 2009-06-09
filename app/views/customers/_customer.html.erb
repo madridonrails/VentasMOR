@@ -1,0 +1,7 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td class="data"><%= link_to_customer(customer) %></td>
+  <td class="actions-column">
+    <%= link_to 'Nueva oferta', new_customer_offer_path(customer) %> |
+    <%= link_to 'Ver ofertas', customer_offers_path(customer) %>
+  </td>
+</tr>

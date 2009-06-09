@@ -1,0 +1,28 @@
+<%# We use fields_for because addresses are always edited as part of other models. %>
+
+<% with_selectors_fields_for :address, address do |a| %>
+<tr>
+  <td class="Label"><%= a.label(:street1, "Dirección") %></td>
+  <td><%= a.text_field :street1 %></td>
+</tr>
+<tr>
+  <td class="Label"><%= a.label(:street2, "Dirección (cont.)") %></td>
+  <td><%= a.text_field :street2 %></td>
+</tr>
+<tr>
+  <td class="Label"><%= a.label(:postal_code, "Código postal") %></td>
+  <td><%= a.text_field :postal_code %></td>
+</tr>
+<tr>
+  <td class="Label"><%= a.label(:city, "Localidad") %></td>
+  <td><%= a.text_field :city %></td>
+</tr>
+<tr>
+  <td class="Label"><%= a.label(:province, "Provincia") %></td>
+  <td><%= a.text_field :province %></td>
+</tr>
+<tr>
+  <td class="Label"><%= a.label(:country_id, "País") %></td>
+  <td><%= a.country_selector %></td>
+</tr>
+<% end %>

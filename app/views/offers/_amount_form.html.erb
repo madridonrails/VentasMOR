@@ -1,0 +1,5 @@
+<% div_for(@offer, :amount) do %>
+  <% remote_form_for(@offer, :url => amount_offer_path(@offer), :method => :put) do |form| %>
+    <%= form.text_field :amount, :size => 7, :onchange => 'this.form.onsubmit()', :class => 'underline numeric' %>
+  <% end %>
+<% end %>

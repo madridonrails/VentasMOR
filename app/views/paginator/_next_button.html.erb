@@ -1,0 +1,10 @@
+<% if collection.next_page %>
+  <%= link_to(
+    '&nbsp;»&nbsp;', params.slice(:search).merge({
+      :page      => collection.next_page,
+      :order_by  => @current_order_by,
+      :direction => @current_direction
+    }),
+    :class => 'button'
+  ) %>
+<% end %>

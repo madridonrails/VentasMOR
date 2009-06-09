@@ -1,0 +1,9 @@
+Instructions for SnapZ Pro X
+-----------------------------
+
+* work more or less in a window with actual dimensions 1024x768
+* record at 60%, if you record the movie at 100% and then scale the result is much bigger
+* select Animation as encoding
+* select Millions of Colors
+* select Medium quality
+* ffmpeg -i ventasgem.mov -vcodec flashsv -g 0 -acodec libmp3lame ventasgem.flv

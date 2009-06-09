@@ -1,0 +1,54 @@
+# == Schema Information
+# Schema version: 20080808120148
+#
+# Table name: offers
+#
+#  id                     :integer(11)     not null, primary key
+#  salesman_id            :integer(11)     not null
+#  name                   :string(255)
+#  name_normalized        :string(255)
+#  amount                 :decimal(14, 2)
+#  deal_date              :date
+#  customer_id            :integer(11)
+#  next_action            :string(255)
+#  next_action_due_date   :date
+#  description            :text
+#  status_id              :integer(11)
+#  weight                 :integer(11)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  description_normalized :text
+#  delta                  :boolean(1)
+#
+
+foo:
+  id: 1
+  salesman_id: 1
+  name: foo_test
+  name_normalized: foo_test
+  amount: 100
+  deal_date: <%= 5.days.ago.to_s :db %>
+  customer_id: 1
+  description: test test test
+  status_id: 1
+  weight: 90
+  created_at: <%= 5.days.ago.to_s :db %> 
+  updated_at: <%= 5.days.ago.to_s :db %> 
+  description_normalized: test test test
+  delta: 1
+
+bar:
+  id: 2
+  salesman_id: 2
+  name: bar_test
+  name_normalized: bar_test
+  amount: 200
+  deal_date: <%= 5.days.ago.to_s :db %>
+  customer_id: 2
+  description: test test test
+  status_id: 2
+  weight: 90
+  created_at: <%= 5.days.ago.to_s :db %> 
+  updated_at: <%= 5.days.ago.to_s :db %> 
+  description_normalized: test test test
+  delta: 2

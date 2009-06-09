@@ -1,0 +1,7 @@
+<% form_for @status do |form| %>
+<%= render :partial => form %>
+<%= render :partial => 'shared/cancel_submit', :locals => {
+  :cancel_url   => statuses_url,
+  :submit_label => 'Crear estado'
+} %>
+<% end %>

@@ -1,0 +1,12 @@
+<% form_tag url_for(:action => 'show', :id => nil), :id => 'paginator-completion-form' do %>
+  <%= hidden_field_tag h(@scope_key), h(@scope_value) if @scope_key && @scope_value %>
+  <%= hidden_field_tag :search, params[:search] unless params[:search].blank? %>
+  <%= model_name %>:
+  <%= model_auto_completer(
+        'name', '', 'id', '',
+        {:action => 'by_name', :submit_on_return => true},
+        {:size => 25},
+        {:skip_style => true, :with => "$('paginator-completion-form').serialize()", :method => :get}
+  ) %>
+  <%= submit_tag ' Ir ', :class => 'button' %>
+<% end %>

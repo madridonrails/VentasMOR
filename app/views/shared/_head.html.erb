@@ -1,0 +1,24 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-language" content="es" />
+  <meta name="copyright"    content="Copyright 2009 ASPgems" />
+  <meta name="description"  content="Aplicacion para gestión de ventas on-line" />
+  <meta name="keywords"     content="CRM, gestión de ventas, pipeline, gestión de proyectos, gestión de ofertas, autonomo, autonomos, pymes, facil" />
+  <meta name="robots"       content="index,follow" />
+  <meta name="language"     content="ES" />
+  <meta name="distribution" content="global" />
+  <meta name="abstract"     content="<%= APP_NAME %> es una aplicación on-line con la que resulta muy sencillo gestionar el pipeline de tu fuerza comercial" />
+
+  <% if @current_account %>
+    <title><%= APP_NAME %> para <%=h @current_account.name %></title>
+  <% else %>
+    <title><%= APP_NAME %>: servicio online para gestión de ventas</title>
+  <% end %>
+
+  <!-- favicon, following the guidelines in http://en.wikipedia.org/wiki/Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="alternate" type="application/rss+xml" title="ROR" href="/ror.xml" />
+
+  <%= stylesheet_link_tag :all, :cache => true %>
+  <%= javascript_include_tag :all, :cache => true %>
+</head>

@@ -1,0 +1,18 @@
+<% next_action_id = "next_action_#{dom_id(offer)}" %>
+<% tooltip = offer.next_action.blank? ? '' : %Q{ onmouseover="TagToTip('#{next_action_id}', #{options_for_tooltips})" onmouseout="UnTip()"} %>
+
+<div style="display:none" id="<%= next_action_id %>" class="tooltip"><%= h(offer.next_action) %></div>
+<tr class="<%= cycle('even', 'odd') %>">
+  <td class="data"><%= link_to_customer(offer.customer) %></td>
+  <td class="data"<%= tooltip %>><%= link_to_offer(offer) %></td>
+  <td class="data numeric"><%= link_to_user(offer.salesman) %></td>
+  <td class="data numeric editable">
+    <%= render :partial => 'amount', :locals => {:offer => offer}  %>
+  </td>
+  <td class="data centered editable">
+    <%= render :partial => 'status', :locals => {:offer => offer}  %>
+  </td>
+  <td class="data editable">
+    <%= render :partial => 'deal_date', :locals => {:offer => offer}  %>
+  </td>
+</tr>

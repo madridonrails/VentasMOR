@@ -1,0 +1,10 @@
+<% div_for(@offer, :status) do %>
+  <% remote_form_for(
+       @offer,
+       :url => status_offer_path(@offer),
+       :method => :put,
+       :builder => SelectBuilder
+      ) do |form| %>
+    <%= form.status_selector @current_account, :status_id, {}, :onchange => 'this.form.onsubmit()' %>
+  <% end %>
+<% end %>

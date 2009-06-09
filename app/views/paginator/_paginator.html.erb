@@ -1,0 +1,26 @@
+<% if theres_pagination(collection) %>
+<% container ||= 'list' %>
+<% locals = local_assigns.merge(:container => container) %>
+<div id="paginator">
+  <table width="100%">
+    <colgroup>
+      <col width="50%"/>
+      <col width="20%"/>
+      <col width="30%"/>
+    </colgroup>
+    <tr>
+      <td>
+        <%= render :partial => 'paginator/model_selector', :locals => locals %>
+      </td>
+      <td align="center">
+        Página:
+        <%= render :partial => 'paginator/page_selector', :locals => locals %>
+      <td align="right">
+        <%= render :partial => 'paginator/record_range',    :locals => locals %>
+        <%= render :partial => 'paginator/previous_button', :locals => locals %>
+        <%= render :partial => 'paginator/next_button',     :locals => locals %>
+      </td>
+    </tr>
+  </table>
+</div>
+<% end %>

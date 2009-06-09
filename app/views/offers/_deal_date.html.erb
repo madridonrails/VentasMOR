@@ -1,0 +1,7 @@
+<%
+  label = format_date(offer.deal_date)
+  label =  %Q{<span class="overdue">#{label}</span>} if offer.overdue_closing?
+%>
+<div id="<%= dom_id(offer, :deal_date) %>">
+  <%= link_to_remote label, :url => deal_date_offer_path(offer), :method => :get, :update => dom_id(offer, :deal_date) %>
+</div>

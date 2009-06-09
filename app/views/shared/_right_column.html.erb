@@ -1,0 +1,14 @@
+<!-- "pending" is an aux ID for Ajax updates of this box -->
+<div id="pending">
+  <%= render :partial => 'shared/top_status' %>
+</div>
+
+<div id="bottom-status"></div>
+
+<% cache "sidebar_links" do %>
+  <%= render :partial => 'shared/top_links' %>
+<% end %>
+
+<div id="bottom-links"></div>
+
+<%= render :partial => 'shared/adsense'%>

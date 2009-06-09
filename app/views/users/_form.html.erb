@@ -1,0 +1,81 @@
+<table width="100%"  border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+
+  <% if @user == @current_user %>
+  <tr>
+    <td class="Label" valign="top"><label for="current_password">Contraseña actual</label></td>
+    <td>
+      <%= password_field :current_password, '', :id => 'current_password' %><br />
+      <span class="comment">Para cambiar estos datos es necesario que entres tu contraseña</span>
+      <% if @wrong_password %>
+      <br /><span class="error">la contraseña no es correcta</span>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+
+  <tr>
+    <td class="Label" valign="top"><%= form.label(:name, "Nombre") %></td>
+    <td>
+      <%= form.text_field :name %>
+      <%= errors_for_attr :user, :name %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="Label" valign="top"><%= form.label(:email, "Email") %></td>
+    <td>
+      <%= form.text_field :email %>
+      <%= errors_for_attr :user, :email %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="Label" valign="top"><%= form.label(:password, "Contraseña nueva") %></td>
+    <td>
+      <%= form.password_field :password, :onkeypress => "$('password_visibility_toggler').appear()" %>
+      <span id="password_visibility_toggler" style="display:none">
+        <span id="show_password">
+          <%= link_to_function '[Ver lo que escribo]', "toggle_password_field('user_password'); $('show_password').hide(); $('hide_password').appear();" %>
+        </span>
+        <span style="display:none" id="hide_password">
+          <%= link_to_function '[Ocultar contraseña]', "toggle_password_field('user_password'); $('hide_password').hide(); $('show_password').appear();" %>
+        </span>
+      </span>
+      <% unless @user.new_record? %>
+      <br/><span class="comment">Si no deseas cambiar la contraseña deja este campo en blanco</span>
+      <% end %>
+      <%= errors_for_attr :user, :password %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="Label" valign="top"><%= form.label(:administrator, "Administrador") %></td>
+    <td>
+      <% if admin? %>
+        <% if @user == @current_user %>
+          <%= form.check_box :administrator, :disabled => true %>
+          <span class="comment">(El rol de administrador sólo puede ser modificado por otro administrador.)</span>
+        <% else %>
+          <%= form.check_box :administrator %>
+        <% end %>
+      <% else %>
+        <%= form.check_box :administrator, :disabled => true %>
+        <span class="comment">(Sólo un administrador pueden editar roles.)</span>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:salesman, "Comercial") %></td>
+    <td>
+      <% if admin? %>
+        <%= form.check_box :salesman %>
+        <%= errors_for_attr :user, :salesman %>
+      <% else %>
+        <%= form.check_box :salesman, :disabled => true %>
+        <span class="comment">(Sólo un administrador pueden editar roles.)</span>
+      <% end %>
+    </td>
+  </tr>
+</table>

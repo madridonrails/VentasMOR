@@ -1,0 +1,8 @@
+<%# Trick learned in The Rails Way. %>
+<% label = :name unless local_assigns.key?(:label) %>
+
+<ul>
+  <% for c in @completions %>
+  <li id="<%= dom_id(c) %>"><%=h c.send(label) %></li>
+  <% end %>
+</ul>

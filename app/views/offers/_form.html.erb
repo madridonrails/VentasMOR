@@ -1,0 +1,73 @@
+<div class="offer-form-row">
+  <div class="offer-form-left-col">
+    <label>Nombre de la oferta</label><br/>
+    <%= form.text_field :name %>
+    <%= errors_for_attr :offer, :name %>
+    <br/><br/>
+
+    <%= render :partial => 'customer_selector', :locals => {:form => form} %>
+    <br/>
+
+    <label>Importe</label><br/>
+    <%= form.text_field :amount, :size => 12, :class => 'numeric' %>
+    <%= errors_for_attr :offer, :amount %>
+    <br/><br/>
+
+    <label>Fecha estimada de cierre</label><br/>
+    <%= form.text_field :deal_date_as_string, :size => 10 %>
+    <%= date_picker 'offer_deal_date_as_string' %>
+    <%= errors_for_attr :offer, :deal_date %>
+    <br/><br/>
+
+    <label>Siguiente acción</label><br/>
+    <%= form.text_field :next_action %>
+    el
+    <%= form.text_field :next_action_due_date_as_string, :size => 10 %>
+    <%= date_picker 'offer_next_action_due_date_as_string' %>
+    <%= errors_for_attr :offer, :next_action_due_date %>
+  </div>
+
+  <div class="offer-form-right-col">
+    <% if admin? %>
+    <%= render :partial => 'salesman_selector', :locals => {:form => form} if admin? %>
+    <br/>
+    <% end %>
+
+    <label>Estado</label><br/>
+    <%= form.status_selector(@current_account) %>
+    <br/><br/>
+
+    <label>Probabilidad de éxito sobre 100</label><br/>
+    <span id="field-for-offer-weight"<%= hide_if @offer.closed? %>>
+      <%= form.text_field :weight, :size => 3, :class => 'numeric' %> %
+    </span>
+    <span id="lost-offer-weight"<%= hide_if !@offer.lost? %>>
+      0 %
+    </span>
+    <span id="won-offer-weight"<%= hide_if !@offer.won? %>>
+      100 %
+    </span>
+    <br/><br/>
+
+    <label>Descripción</label><br/>
+    <%= form.text_area :description, :rows => 5, :cols => 50 %>
+  </div>
+</div>
+
+<%= observe_field :offer_status_id,
+                  :function => <<-JS.gsub(/\s+/, ' ')
+                  if (value == '#{@current_account.won_status.id}') {
+                    $('field-for-offer-weight').hide();
+                    $('lost-offer-weight').hide();
+                    $('won-offer-weight').show();
+                  } else if (value == '#{@current_account.lost_status.id}') {
+                    $('field-for-offer-weight').hide();
+                    $('won-offer-weight').hide();
+                    $('lost-offer-weight').show();
+                  } else {
+                    $('lost-offer-weight').hide();
+                    $('won-offer-weight').hide();
+                    $('field-for-offer-weight').show();
+                  }
+                  JS
+ %>

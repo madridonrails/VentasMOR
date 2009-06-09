@@ -1,0 +1,48 @@
+<div class="blank-page">
+  <% if @pipeline_size.zero? %>
+    <div class="caption">Previsiones</div>
+    <p>En estos momentos el pipeline está vacío.</p>
+  <% else %>
+    <div class="caption">Pipeline por estado</div>
+    <p class="graph-legends">
+      <% for status in @current_account.statuses %>
+        <%= render :partial => 'shared/colored_record', :object => status %>
+      <% end %>
+    </p>
+    <p>
+      <% form_remote_tag :url => pipeline_per_status_forecasts_path, :update => 'pipeline_per_status', :method => :get do %>
+        <label for="weighted">Ponderado:</label>
+        <select name="weighted" onchange="this.form.onsubmit();">
+          <option selected="selected" value="0">No</option>
+          <option value="1">Sí</option>
+        </select>
+      <% end %>
+    </p>
+    <%= render :partial => 'pipeline_per_status', :locals => {:graph => @pipeline_per_status} %>
+    <% if admin? %>
+      <div class="caption">Pipeline por comercial</div>
+      <p class="graph-legends">
+        <% for salesman in @current_account.salesmen %>
+          <%= render :partial => 'shared/colored_record', :object => salesman %>
+        <% end %>
+      </p>
+      <p>
+        <% form_remote_tag :url => pipeline_per_salesman_forecasts_path, :update => 'pipeline_per_salesman', :method => :get do %>
+          Ponderado:
+          <select name="weighted" onchange="this.form.onsubmit();">
+            <option selected="selected" value="0">No</option>
+            <option value="1">Sí</option>
+          </select>
+          Comercial:
+          <select name="user_id" onchange="this.form.onsubmit();">
+            <option value="">Todos los comerciales</option>
+            <% for salesman in @current_account.salesmen %>
+            <option value="<%= salesman.id %>"><%=h salesman.name %></option>
+            <% end %>
+          </select>
+        <% end %>
+      </p>
+      <%= render :partial => 'pipeline_per_salesman', :locals => {:graph => @pipeline_per_salesman} %>
+    <% end %>
+  <% end %>
+</div>

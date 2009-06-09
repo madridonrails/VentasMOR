@@ -1,0 +1,22 @@
+<div id="home-header">
+  <div id="header-logo">
+    <%= logo_linked_to_public_home_page %>
+  </div>
+  <div id="home-tabs">
+    <%# force the following LIs to be in a single line, because otherwise grey bars appear in between %>
+    <%
+      # TODO: These hard-coded paths should be generate with route helpers.
+      menu = [
+        ['/',               'INICIO'],
+        ['/public/tour',    'TOUR'],
+        ['/public/help',    'AYUDA'],
+        ['/public/contact', 'CONTACTO'],
+        [new_account_path,  'REGISTRO'],
+        ['/public/login',   'LOGIN']
+      ].map do |path, label|
+        "<li>#{link_to label, path}</li>"
+      end.join("<li>#{image_tag "grey-px.gif", :width => 1, :height => 1}</li>")
+    %>
+    <ul><%= menu %></ul>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+# == Schema Information
+# Schema version: 20080808120148
+#
+# Table name: addresses
+#
+#  id               :integer(11)     not null, primary key
+#  street1          :string(255)
+#  street2          :string(255)
+#  city             :string(255)
+#  province         :string(255)
+#  postal_code      :string(255)
+#  country_id       :integer(11)
+#  addressable_id   :integer(11)
+#  addressable_type :string(255)
+#
+address_1:
+  id: 1
+  street1: street test 1
+  street2: street test 2
+  city: Madrid
+  province: Madrid
+  postal_code: 112233
+  country_id: 71
+  addressable_id: 1
+  addressable_type: 1
+  
+address_2:
+  id: 2
+  street1: stret test 3
+  street2: street test 4
+  city: Barcelona
+  province: Barcelona
+  postal_code: 221144
+  country_id: 71
+  addressable_id: 2 
+  addressable_type: 2

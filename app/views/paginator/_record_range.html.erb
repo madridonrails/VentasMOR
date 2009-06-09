@@ -1,0 +1,7 @@
+<%
+  from  = collection.offset + 1
+  total = collection.total_entries
+  to    = [from + collection.per_page - 1, total].min
+%>
+
+<%= from %> &ndash; <%= to %> de <%= total %>

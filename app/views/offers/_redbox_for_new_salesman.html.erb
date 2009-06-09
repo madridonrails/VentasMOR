@@ -1,0 +1,30 @@
+<%#
+  This is the form which appears as a popup in the offer form to create
+  salesman on the fly.
+%>
+
+<div id="redbox-for-new-salesman" style="display: none; width: 700px;">
+  <div style="margin: 10px">
+    <div style="padding: 10px">
+    <%# We create a fake user to fool the user form partial. %>
+    <% @user = @current_account.users.build; @user.salesman = true %>
+    <% remote_form_for @user, :url => create_for_offer_users_path do |form| %>
+      <%= render :partial => 'users/form', :locals => {:form => form} %>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <colgroup>
+         <col width="50%"/>
+         <col width="50%"/>
+        </colgroup>
+        <tr>
+          <td>
+            <%= button_to_function 'Cancelar', "clean_errors_in_salesman_redbox(); show_combos_for_redbox_if_ie('offer-form'); RedBox.close()", :class => 'button' %>
+          </td>
+          <td align="right">
+            <%= submit_tag 'Crear usuario', :class => 'button' %>
+          </td>
+      	</tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>

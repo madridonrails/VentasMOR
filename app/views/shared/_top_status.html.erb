@@ -1,0 +1,9 @@
+<div id="top-status">
+  <span class="legend">Total ofertas</span>
+  <br/><br/>
+  <span class="status"><%= format_amount(@total_pipeline, :force_integer => true) %></span>
+  <br/><br/><br/>
+  <span class="legend">Total ponderado</span>
+  <br/><br/>
+  <span class="status"><%= format_amount(@weighted_total_pipeline, :force_integer => true) %></span>
+</div>

@@ -1,0 +1,23 @@
+<div id="home-section">
+  <div id="home-tour">
+    <div id="home-section-header">
+      Tour
+    </div>
+
+    <div id="home-section-container">
+      <div id="home-section-subcontainer">
+        <div id="video_frame">
+          <div id="video_frame2">
+          <%# see http://www.jroller.com/abstractScope/entry/flash_mp3_imageslideshow_media_player %>
+          <%# height is video height plus 20px %>
+          <%= flv_player({
+                :file => 'http://aspgems.s3.amazonaws.com/ventasgem/videos/ventasgem.flv',
+                :autostart => true
+                }, :width => 653, :height => 473)
+          %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

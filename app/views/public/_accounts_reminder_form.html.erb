@@ -1,0 +1,19 @@
+<% if flash[:reminder_sent] %>
+<p class="notice">
+  Si la dirección "<%=h flash[:reminder_email] %>" figura en nuestra
+  base de datos recibirás un mensaje con tus cuentas. Si no llegara, por
+  favor comprueba la carpeta de correo no deseado (spam) o contáctanos en
+  <%= mail_to CONTACT_EMAIL_ACCOUNTS, CONTACT_EMAIL_ACCOUNTS, :encode => 'javascript' %>.
+</p>
+<% end %>
+
+<% form_tag(:action => 'accounts_reminder') do %>
+<p>
+  <label for="email">Email</label><br />
+  <%# We put an explicit nil :id because it is generated and we have another email field in the same page. %>
+  <%= text_field_tag 'email', flash[:email], :id => nil, :class => 'home-form-field' %>
+</p>
+<p>
+  <%= submit_tag 'Solicitar datos', :class => 'button' %>
+</p>
+<% end %>

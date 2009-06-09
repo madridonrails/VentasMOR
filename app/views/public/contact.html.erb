@@ -1,0 +1,15 @@
+<div id="home-section">
+  <div id="home-contact">
+    <div id="home-section-header">
+      Contacto
+    </div>
+
+    <div id="home-section-container">
+      <div id="home-section-subcontainer">
+        <p>Dudas sobre <%= APP_NAME %>: <%= mail_to CONTACT_EMAIL_INFORMATION, nil, :encode => 'javascript' %>.</p>
+        <p>Dudas sobre tu cuenta en <%= APP_NAME %>: <%= mail_to CONTACT_EMAIL_ACCOUNTS, nil, :encode => 'javascript' %>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

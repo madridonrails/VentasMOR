@@ -1,0 +1,20 @@
+<div id="column-total">
+  <div id="top-page-total"></div>
+  <div id="middle-page-total">
+    <% with_selectors_form_for @offer do |form| %>
+    <div id="offer-form">
+      <%= render :partial => 'form', :locals => {:form => form} %>
+    </div>
+
+    <div id="form-button-area">
+      <%= render :partial => 'shared/cancel_submit', :locals => {
+        :cancel_url   => offers_url,
+        :submit_label => 'Guardar oferta'
+      } %>
+    </div>
+    <% end %>
+  </div>
+  <div id="bottom-page-total"></div>
+</div>
+<%= render :partial => 'redbox_for_new_customer' %>
+<%= render :partial => 'redbox_for_new_salesman' %>

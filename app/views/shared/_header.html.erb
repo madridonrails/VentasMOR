@@ -1,0 +1,24 @@
+<div id="header">
+  <div id="header-logo">
+    <%= logo_linked_to_public_home_page %>
+  </div>
+  <div id="header-logout">
+    <!--<%=h @current_user.name %>&nbsp;--><%= link_to 'Desconectar', session_path, :method => :delete %>
+    <br><!-- <img src="/images/logo-cathedral.gif" /> -->
+  </div>
+  <div id="tabs-container">
+    <div id="tabs">
+      <ul>
+        <li<%= ' class="current"' if @current_controller == 'offers' && %w(new update).include?(@current_action) %>><%= link_to 'Nueva oferta', new_offer_path %></li>
+        <li<%= ' class="current"' if @current_controller == 'offers' && !%w(new update).include?(@current_action) %>><%= link_to 'Ofertas', open_offers_path %></li>
+        <li<%= ' class="current"' if @current_controller == 'forecasts' %>><%= link_to 'Previsiones', forecasts_path %></li>
+        <li<%= ' class="current"' if @current_controller == 'customers' %>><%= link_to 'Clientes', customers_path %></li>
+        <li<%= ' class="current"' if @current_controller == 'users' && @current_action == 'me' %>><%= link_to 'Mis datos', me_users_path %></li>
+        <% if admin? %>
+        <li<%= ' class="current"' if @current_controller == 'users' && @current_action != 'me' %>><%= link_to 'Usuarios', users_path %></li>
+        <% end %>
+        <li<%= ' class="current"' if @current_controller == 'statuses' %>><%= link_to 'Estados', statuses_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

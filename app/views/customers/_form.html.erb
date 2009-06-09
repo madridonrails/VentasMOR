@@ -1,0 +1,46 @@
+<table width="100%"  border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+
+  <tr>
+    <td class="Label"><%= form.label(:name, "Nombre") %></td>
+    <td>
+      <%= form.text_field :name %>
+      <%= errors_for_attr :customer, :name %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:contact, "Contacto") %></td>
+    <td><%= form.text_field :contact %></td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:phone, "Teléfono") %></td>
+    <td><%= form.text_field :phone %></td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:email, "Email") %></td>
+    <td><%= form.text_field :email %></td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:fax, "Fax") %></td>
+    <td><%= form.text_field :fax %></td>
+  </tr>
+
+  <tr>
+    <td class="Label"><%= form.label(:cif, "NIF/CIF") %></td>
+    <td>
+      <%= form.text_field :cif %>
+      <%= errors_for_attr :customer, :cif %>
+    </td>
+  </tr>
+
+  <%= render :partial => 'address/form', :locals => {:address => @customer.address} %>
+  
+  <tr>
+    <td class="Label"><%= form.label(:notes, "Notas") %></td>
+    <td><%= form.text_area :notes, :rows => 4, :cols => 50 %></td>
+  </tr>
+</table>

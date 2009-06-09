@@ -1,0 +1,24 @@
+<div id="list">
+  <table id="customers" width="100%">
+    <colgroup>
+      <col width="50%"/>
+      <col width="16%"/>
+      <col width="13%"/>
+      <col width="23%"/>
+    </colgroup>
+  
+    <tr class="caption"><td colspan="5">Usuarios</td></tr>
+
+    <tr>
+      <td class="new-model-link" colspan="6">
+        <%= icon 'icon-add-user.gif' %>
+        <%= link_to 'Nuevo usuario', new_user_path %>
+      </td>
+    </tr>
+
+    <%= table_header :labels => ['Nombre', 'Administrador', 'Comercial', '&nbsp;'], :non_orderable => -1 %>
+    
+    <%= render :partial => @users %>
+  </table>
+  <%= render :partial => 'paginator/paginator', :locals => {:model_name => 'Usuario', :collection => @users} %>
+</div>

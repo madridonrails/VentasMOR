@@ -1,0 +1,7 @@
+<div id="offer-customer-selector">
+  <label>Cliente</label><br/>
+  <%= form.customer_selector(@current_account) %>
+  <%# We wait a second for the field to be visible, otherwise focus() could fail. %>
+  <%= link_to_redbox '[ Nuevo ]', 'redbox-for-new-customer', :onclick => %Q{hide_combos_for_redbox_if_ie('offer-form'); setTimeout('$(&quot;customer_name_in_redbox&quot;).focus()', 1000);} %>
+  <%= errors_for_attr :offer, :customer_id %>
+</div>

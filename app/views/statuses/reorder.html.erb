@@ -1,0 +1,38 @@
+<div id="status-list-container">
+  <div class="caption">
+    Reordenar estados
+  </div>
+  
+  <p>
+    El orden relativo de los estados se tiene en cuenta en el selector de estado
+    de una oferta y el gráfico del pipeline.
+  </p>
+  <p>
+    Para mover un estado de sitio haz click sobre él y arrástralo hasta la posición que 
+    quieres. Una vez hayas terminado haz click en el enlace de abajo para volver al listado.
+  </p>
+
+  <table id="status-list-table">
+    <tbody id="status-list">
+      <% for s in @statuses %>
+      <tr id="<%= dom_id(s) %>">
+        <td><%=h s.name %></td><td class="numeric"><%=h s.weight %>%</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= sortable_element 'status-list',
+        :url => { :action => "reorder" },
+        :constraint => :vertical,
+        :tag => 'tr' %> 
+</div>
+
+<div id="show-bottom-actions">
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <%= link_to 'He terminado de reordenar estados', statuses_path %>
+      </td>
+    </tr>
+  </table>
+</div>

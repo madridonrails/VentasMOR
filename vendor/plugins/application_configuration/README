@@ -1,0 +1,17 @@
+ApplicationConfiguration
+========================
+
+Simple means of configuring your application by placing an 'application.yml' file
+into the '/config' folder, which is then parsed into a `Config` object.
+
+It's basically Dmitro Shteflyuk's idea of using `Ostruct` packaged into a plugin; see http://kpumuk.info/ruby-on-rails/flexible-application-configuration-in-ruby-on-rails/ for details.
+
+Anything declared in YAML file is then available in your application:
+
+1. In RAILS_ROOT/config/application.yml: `website_name: Rubyists Anonymous`
+
+2. In your application (try in `script/console`): `puts Config.website_name`
+	
+3. In your views: `<%= Config.website_name =>`
+
+Plugin automatically places an example 'application.yml' into your '/config' folder and provides Rake tasks for installing an uninstalling. Basic set of unit tests is provided.

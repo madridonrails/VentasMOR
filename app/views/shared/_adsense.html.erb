@@ -1,0 +1,18 @@
+<% if false %>
+<div id="adsense">
+  <% if Rails.env == 'production' %>
+  <script type="text/javascript">
+    google_ad_client = "pub-4063996417263301";
+    /* 200x200, VentasGEM */
+    google_ad_slot = "5339148569";
+    google_ad_width = 200;
+    google_ad_height = 200;
+  </script>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+  <% else %>
+  <%# Taken from https://www.google.com/adsense/static/en_US/AdFormats.html %>
+  <%= image_tag 'adsense.gif' %>
+  <% end %>
+</div>
+<% end %>

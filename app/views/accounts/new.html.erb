@@ -1,0 +1,44 @@
+<div id="home-section">
+  <div id="home-signup">
+    <div id="home-section-header">
+      Crea GRATIS tu cuenta en <%= APP_NAME %>
+    </div>
+
+    <div id="home-section-container">
+      <div id="home-section-subcontainer">
+        <div id="home-section-content">
+          <p id="home-section-subtitle"><%= APP_NAME %>: más fácil imposible</p>
+          <p>
+            <%= image_tag 'icon-tick.gif', :width => 16, :height => 13 %>
+            Crea tu cuenta GRATIS en <%= APP_NAME %> sin compromiso.
+          </p>
+          <%= render :partial => 'signup_form' %>
+        </div>
+
+        <div id="home-section-sidebar">
+          <div id="home-section-siderbar-top">
+            <p>
+              <%= APP_NAME %> es una aplicación
+              online TOTALMENTE GRATUITA.
+            </p>
+            <p>
+              <%= image_tag 'icon-tick.gif', :width => 16, :height => 13 %>
+              Sin compromisos<br />
+              <%= image_tag 'icon-tick.gif', :width => 16, :height => 13 %>
+              Sin coste de alta<br />
+              <%= image_tag 'icon-tick.gif', :width => 16, :height => 13 %>
+              Sin cuotas mensuales<br />
+              <%= image_tag 'icon-tick.gif', :width => 16, :height => 13 %>
+              Sin limitaciones<br />
+            </p>
+            <p>
+              Prueba <%= APP_NAME %> y visualiza
+              tus previsiones de ventas de la manera más sencilla y práctica posible.
+            </p>
+          </div>
+          <div id="home-section-siderbar-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

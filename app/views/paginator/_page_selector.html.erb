@@ -1,0 +1,12 @@
+<% form_tag({}, :method => :get, :style => 'display: inline') do %>
+  <%= hidden_field_tag :order_by, @current_order_by %>
+  <%= hidden_field_tag :direction, @current_direction %>
+  <%= hidden_field_tag :search, params[:search] unless params[:search].blank? %>
+  <select name="page" onchange="this.form.submit()">
+  <% for p in 1..collection.total_pages %>
+    <% selected = p == collection.current_page ? ' selected="selected"' : '' %>
+    <option value="<%= p %>"<%= selected %>><%= p %></option>
+  <% end %>
+  </select>
+<% end %>
+

@@ -1,0 +1,10 @@
+<div id="<%= dom_id(offer, :amount) %>">
+  <%=
+    link_to_remote(
+      format_amount(offer.amount),
+      :url    => amount_offer_path(offer),
+      :method => :get,
+      :update => dom_id(offer, :amount)
+    )
+  %>
+</div>

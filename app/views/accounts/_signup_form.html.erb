@@ -1,0 +1,53 @@
+<% form_for(@account, :html => {:onsubmit => "return check_acceptance_of_terms_of_service(this);", :id => 'signup-form'}) do |f| %>
+  <p>
+    ¿Cuál es el nombre de tu empresa u organización?<br />
+    <%= f.text_field :name, :size => 40, :class => "home-form-field" %>
+    <%= errors_for_attr :account, :name %>
+  </p>
+
+  <p>
+    Escoge una dirección personalizada de acceso a <%= APP_NAME %>:<br/>
+    http://
+    <%= f.text_field :short_name, :class => "home-form-field", :style => 'text-align: center;', :onkeypress => 'autofit(this)', :onchange => 'autofit(this); check_availability_of_short_name(this)' %>
+    .<%= DOMAIN_NAME %>  <span id="available"><%# for Ajax %></span>
+    <%= errors_for_attr :account, :short_name %>
+  </p>
+  <script type="text/javascript" charset="utf-8">
+    Event.observe(window, 'load', function () { autofit($('account_short_name')) });
+  </script>
+
+  <% fields_for @user do |u| %>
+    <p>
+      ¿Cuál es tu nombre?<br />
+      <%= u.text_field :name, :size => 40, :class => 'home-form-field' %>
+      <%= errors_for_attr :user, :name %>
+    </p>
+    <p>
+      ¿Cuál es tu email?<br />
+      <%= u.text_field :email, :size => 40, :class => 'home-form-field' %>
+      <%= errors_for_attr :user, :email %>
+    </p>
+    <p>
+      Por favor, introduce una contraseña de acceso:<br />
+      <%= u.password_field :password, :size => 40, :class => 'home-form-field', :id => 'password', :onkeypress => "$('password_visibility_toggler').appear()" %>
+      <span id="password_visibility_toggler" style="display:none">
+        <span id="show_password">
+          <%= link_to_function '[Ver lo que escribo]', "toggle_password_field('password'); $('show_password').hide(); $('hide_password').appear();" %>
+        </span>
+        <span style="display:none" id="hide_password">
+          <%= link_to_function '[Ocultar contraseña]', "toggle_password_field('password'); $('hide_password').hide(); $('show_password').appear();" %>
+        </span>
+      </span>
+      <%= errors_for_attr :user, :password %>
+    </p>
+  <% end %>
+
+  <p><%# we use onclick="window.open(this.href); return false;" here because target="_blank" is not valid XHTML Strict %>
+    Aceptar <span id="service-conditions"><%= link_to 'condiciones del servicio', {:controller => 'public', :action => 'terms_of_service'}, :onclick => 'window.open(this.href); return false;' %></span>
+    <input type="checkbox" name="accept_terms_of_service" />.
+  </p>
+
+  <p>
+    <%= submit_tag 'Registrar', :class => 'button' %>
+  </p>
+<% end %>

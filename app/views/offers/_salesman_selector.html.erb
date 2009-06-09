@@ -1,0 +1,11 @@
+<div id="offer-salesman-selector">
+  <label>Comercial</label><br/>
+  <% if admin? %>
+  <%= form.salesman_selector(@current_account) %>
+  <%# We wait a second for the field to be visible, otherwise focus() could fail. %>
+  <%= link_to_redbox '[ Nuevo ]', 'redbox-for-new-salesman', :onclick => "hide_combos_for_redbox_if_ie('offer-form'); setTimeout('$(&quot;user_name_in_redbox&quot;).focus()', 1000);" %>
+  <%= errors_for_attr :offer, :salesman_id %>
+  <% else %>
+  <%=h @offer.salesman.name %>
+  <% end %>
+</div>

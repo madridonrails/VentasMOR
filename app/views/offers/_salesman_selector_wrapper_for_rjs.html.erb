@@ -1,0 +1,12 @@
+<%#
+  The salesman selector is part of the offer form and thus relies on its
+  form builder.
+
+  We are now in a flow of execution where no form builder is in context, so we
+  construct a dummy one just to fool the partial. This wrapper is dirty I must
+  admit, but the overall setup I think is quite DRY.
+%>
+
+<% with_selectors_fields_for @offer do |form| %>
+  <%= render :partial => 'offers/salesman_selector', :locals => {:form => form} %>
+<% end %>

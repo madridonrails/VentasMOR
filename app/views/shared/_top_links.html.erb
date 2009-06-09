@@ -1,0 +1,16 @@
+<% separator = '<br />' * 2 %>
+<div id="top-links">
+  <span class="legend">Ir a ...</span>
+  <%= separator %>
+  
+  <%= icon 'icon-list-offers.gif' %> <%= link_to 'Ofertas en curso', open_offers_path %><br/>
+  <%= icon 'icon-list-offers.gif' %> <%= link_to 'Ofertas cerradas', closed_offers_path %><br/>
+  <%= icon 'icon-list-offers.gif' %> <%= link_to 'Histórico de ofertas', offers_path %>
+  <%= separator %>
+
+  <%= icon 'icon-add-client.gif' %> <%= link_to 'Nuevo cliente', new_customer_path %><br />
+  <%= icon 'icon-list-clients.gif' %> <%= link_to 'Listado de clientes', customers_path %>
+  <%= separator %>
+  
+  <%= icon 'icon-list-offers.gif'%> <%= link_to 'Exportar ofertas', export_offers_path %>
+</div>

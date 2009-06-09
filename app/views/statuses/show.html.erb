@@ -1,0 +1,47 @@
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+  <tr>
+    <td colspan="2"><h1><%=h @status.name %></h1></td>
+  </tr>
+  <tr>
+    <td class="label">Nombre</td>
+    <td class="data"><%=h @status.name %></td>
+  </tr>
+  <tr>
+    <td class="label">Probabilidad</td>
+    <td class="data"><%=h @status.weight %>%</td>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Ofertas</td>
+    <td class="data">
+      <% for offer in @status.offers %>
+      <%= link_to_offer offer %><br/>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<br /><br />
+
+<div id="show-bottom-actions">
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <%= link_to "#{missing_icon} Nuevo estado", new_status_path %>
+      </td>
+      <td>
+        <%= link_to "#{missing_icon} Ver estados", statuses_path %>
+      </td>
+      <% if @status.editable? %>
+      <td>
+        <%= link_to "#{missing_icon} Cambiar datos", edit_status_path %>
+      </td>
+      <% end %>
+      <% if @status.can_be_destroyed? %>
+      <td>
+        <%= link_to "#{missing_icon} Borrar", status_path, :method => :delete, :confirm => "Esta acción es irreversible.\n¿Está seguro de que desea borrar este estado?" %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+<table width="100%"  border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+
+  <tr>
+    <td class="Label"><%= form.label(:name, "Nombre") %></td>
+    <td>
+      <%= form.text_field :name %>
+      <%= errors_for_attr :status, :name %>
+    </td>
+  </tr>  
+  <tr>
+    <td class="Label"><%= form.label(:weight, "Probabilidad") %></td>
+    <td>
+      <%= form.text_field :weight, :size => 3, :maxlength => 3, :class => 'numeric' %> %
+      <%= errors_for_attr :status, :weight %>
+    </td>
+  </tr>
+  <% if false %>
+  <tr>
+    <td class="Label" valign="top"><%= form.label(:color, "Color") %></td>
+    <td>
+      <%= form.text_field :color, :size => 7, :maxlength => 7 %>
+      <a id="trigger">[ Haz click aquí para escoger un color ]</a>
+      <script type="text/javascript" charset="utf-8">
+        new ColourPicker('custom_status_color', 'trigger');
+      </script>
+      <%= errors_for_attr :status, :color %>
+    </td>
+  </tr>
+  <% end %>
+</table>

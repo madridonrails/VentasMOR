@@ -1,0 +1,76 @@
+<div id="column-total">
+  <div id="top-page-total"></div>
+  <div id="middle-page-total">
+    <div id="offer-form">
+      <div class="offer-form-row">
+        <div class="offer-form-left-col">
+          <label>Nombre de la oferta</label><br/>
+          <%=h @offer.name %>
+          <br/><br/>
+
+          <label>Cliente</label><br/>
+          <%=h @offer.customer.name %>
+          <br/><br/>
+
+          <label>Importe</label><br/>
+          <%=h format_amount(@offer.amount) %>
+          <br/><br/>
+
+          <%
+            deal_date = @offer.deal_date_as_string
+            deal_date = %Q{<span class="overdue">#{deal_date}</span>} if @offer.overdue_closing?
+          %>
+          <label>Fecha estimada de cierre</label><br/>
+          <%= deal_date %>
+          <br/><br/>
+
+          <label>Siguiente acción</label><br/>
+          <%=h @offer.next_action %>
+          <% if @offer.next_action_due_date %>
+          el <%=h @offer.next_action_due_date_as_string %>
+          <% end %>
+        </div>
+
+        <div class="offer-form-right-col">
+          <% if admin? %>
+          <label>Comercial</label><br/>
+          <%=h @offer.salesman.name %>
+          <br/><br/>
+          <% end %>
+
+          <label>Estado</label><br/>
+          <%=h @offer.status.name %>
+          <br/><br/>
+
+          <label>Probabilidad de éxito sobre 100</label><br/>
+          <%= 'La asociada a su estado: ' unless @offer.has_user_defined_weight? -%>
+          <%= @offer.weight %> %
+          <br/><br/>
+
+          <label>Descripción</label><br/>
+          <%= x_simple_format(@offer.description) %>
+        </div>
+      </div>
+
+      <div id="show-bottom-actions" class="offer-form-row">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <%= link_to "#{missing_icon} Copiar oferta", new_offer_path(:copy => @offer.id) %>
+            </td>
+            <td>
+              <%= link_to "#{missing_icon} Ver ofertas", offers_path %>
+            </td>
+            <td>
+              <%= link_to "#{missing_icon} Modificar oferta", edit_offer_path %>
+            </td>
+            <td>
+              <%= link_to "#{missing_icon} Borrar oferta", offer_path, :method => :delete, :confirm => "Esta acción es irreversible.\n¿Está seguro de que desea borrar esta oferta?" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="bottom-page-total"></div>
+</div>

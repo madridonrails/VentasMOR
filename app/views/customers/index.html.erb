@@ -1,0 +1,31 @@
+<div id="list">
+  <table id="customers" width="100%">
+    <colgroup>
+      <col width="65%"/>
+      <col width="35%"/>
+    </colgroup>
+  
+    <tr class="caption"><td colspan="2">Clientes</td></tr>
+    
+    <tr>
+      <td class="new-model-link" colspan="6">
+        <%= icon 'icon-add-client.gif' %>
+        <%= link_to 'Nuevo cliente', new_customer_path %>
+      </td>
+    </tr>
+
+    <%= table_header :labels => ['Nombre', ['&nbsp;', true]] %>
+    
+    <% if @customers.size > 0 %>
+    <%= render :partial => @customers %>
+    <% else %>
+    <tr>
+      <td colspan="2" class="message-for-empty-listing">
+        No ha creado ningún cliente por ahora,
+        <%= link_to 'haga click aquí si desea crear uno', new_customer_path %>.
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <%= render :partial => 'paginator/paginator', :locals => {:model_name => 'Cliente', :collection => @customers} %>
+</div>

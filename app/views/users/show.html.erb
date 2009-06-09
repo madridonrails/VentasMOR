@@ -1,0 +1,76 @@
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <%= colgroup_for_data_tables %>
+  <tr class="caption">
+    <td colspan="2"><%=h @user.name %></td>
+  </tr>
+
+  <tr>
+    <td class="label">Nombre</td>
+    <td class="data"><%=h @user.name %></td>
+  </tr>
+  <tr>
+    <td class="label">Email</td>
+    <td class="data"><%=h @user.email %></td>
+  </tr>
+  <tr>
+    <td class="label">Administrador</td>
+    <td class="data"><%=h format_boolean(@user.administrator?) %></td>
+  </tr>
+  <tr>
+    <td class="label">Comercial</td>
+    <td class="data"><%=h format_boolean(@user.salesman?) %></td>
+  </tr>
+  <% if @user.salesman? %>
+  <% totals_pipeline = @user.totals_pipeline %>
+  <tr>
+    <td valign="top" class="label">Pipeline</td>
+    <td class="data"><%= format_amount(totals_pipeline[0], :force_integer => true) %>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Pipeline ponderado</td>
+    <td class="data"><%= format_amount(totals_pipeline[1], :force_integer => true) %>
+  </tr>
+  <tr>
+    <td valign="top" class="label">Ofertas en curso</td>
+    <td valign="top" class="data">
+      <table width="100%" border="0">
+        <% cols = 2 -%>
+        <% @user.offers.open.each_slice(cols) do |offers| %>
+        <tr>
+          <% 0.upto(cols-1) do |i| %>
+          <td><%= link_to_offer offers[i] if offers[i] %></td>
+          <% end -%>
+        </tr>
+        <% end -%>
+      </table>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<br /><br />
+
+<div id="show-bottom-actions">
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <% if admin? %>
+      <td>
+        <%= link_to "#{missing_icon} Nuevo usuario", new_user_path %>
+      </td>
+      <% end %>
+      <td>
+        <%= link_to "#{missing_icon} Ver usuarios", users_path %>
+      </td>    
+      <% if @current_user.can_edit_user?(@user) %>
+      <td>
+        <%= link_to "#{missing_icon} Cambiar datos", edit_user_path(@user) %>
+      </td>    
+      <% end %>
+      <% if @current_user.can_destroy_user?(@user) %>
+      <td>
+        <%= link_to "#{missing_icon} Borrar", user_path, :method => :delete, :confirm => "Esta acción es irreversible.\n¿Está seguro de que desea borrar este usuario?" %>
+      </td>    
+      <% end %>
+    </tr>
+  </table>
+</div>

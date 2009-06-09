@@ -1,0 +1,6 @@
+<% div_for(@offer, :deal_date) do %>
+  <% remote_form_for(@offer, :url => deal_date_offer_path(@offer), :method => :put) do |form| %>
+    <%= form.text_field :deal_date_as_string, :size => 10, :onchange => 'this.form.onsubmit()', :class => 'underline' %>
+    <%= date_picker 'offer_deal_date_as_string', true %>
+  <% end %>
+<% end %>

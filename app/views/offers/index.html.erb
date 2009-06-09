@@ -1,0 +1,46 @@
+<div id="list">
+  <table id="customers" width="100%">
+    <colgroup>
+      <col width="25%"/>
+      <col width="25%"/>
+      <col width="25%"/>
+      <col width="8%"/>
+      <col width="8%"/>
+      <col width="9%"/>
+    </colgroup>
+  
+    <tr class="caption"><td colspan="6">Ofertas <%=h @scope_for_caption %></td></tr>
+    <tr>
+      <td colspan="3">
+        <% form_tag(offers_path, :method => :get, :class => 'search_form nofocus') do %>
+          <%= text_field_tag :search, params[:search], :size => 35 %>
+          <%= submit_tag "Buscar Oferta", :class => 'button' %>
+        <% end %>
+      </td>
+      <td class="new-model-link" colspan="3">
+        <%= icon 'icon-add-offer.gif' %>
+        <%= link_to 'Nueva oferta', new_offer_path %>
+      </td>
+    </tr>
+
+    <%= table_header :labels => %w(Cliente Nombre Comercial Importe Estado Cierre) %>
+    
+    <% if @offers.size > 0 %>
+    <%= render :partial => @offers %>
+    <% else %>
+    <tr>
+      <td colspan="6" class="message-for-empty-listing">
+        <% if @current_account.offers.empty? %>
+        No ha creado ninguna oferta por ahora,
+        <%= link_to 'haga click aquí si desea crear una', new_offer_path %>.
+        <% else %>
+        Ninguna en estos momentos.
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <% if theres_pagination(@offers) %>
+  <%= render :partial => 'paginator/paginator', :locals => {:model_name => 'Oferta', :collection => @offers} %>
+  <% end %>
+</div>
